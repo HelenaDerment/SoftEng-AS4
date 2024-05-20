@@ -89,13 +89,43 @@ public void testAddPostInvalidTag() {
 }
 
 //Test Case #5 - Data 1
+public void testAddPostInvalidType() {
+    String[] tags = {"Energy", "Engineering", "EcoWave", "Technology"};
+    Post post = new Post(9, "Eco Wave Power",
+    "The project generates clean and affordable electricity, using a simple design that allows the project’s uniquely shaped floaters to be attached to existing 
+    man-made structures (such as piers, breakwaters and jetties), and thereby simplifying the installation process, as well as maintenance and accessibility.",
+    tags, "Easy", "Ordinary");
+    assertFalse(post.addPost());
 
 //Test Case #5 - Data 2
+public void testAddPostInvalidType() {
+    String[] tags = {"Prim's", "Maths", "Prim'sMST"};
+    Post post = new Post(10, "Prim's Algorithm",
+    "The idea is to maintain two sets of vertices. The first set contains the vertices already included in the MST, and the other set contains the vertices 
+    not yet included. At every step, it considers all the edges that connect the two sets and picks the minimum weight edge from these edges.", 
+    tags, "Very Difficult", "Immediately Needed");
+    assertFalse(post.addPost());
+}
 
 //Test Case #6 - Data 1
+public void testAddPostInvalidEmergency() {
+    String[] tags = {"Attacks", "Cyber", "Security"};
+    Post post = new Post(11, "Suppy Chain Attack",
+    "Since many large organisations have strong cyber security protocols in place, attackers increasingly target their supply chains. These attacks through 
+    suppliers require sophisticated planning and can have dire consequences, such as the SolarWinds hack in 2020. TNO is developing technologies to prevent 
+    these supply chain attacks", tags, "Very Difficult", "Ordinary");
+    assertFalse(post.addPost());
+}
 
 //Test Case #6 - Data 2
-
+public void testAddPostInvalidEmergency() {
+    String[] tags = {"Engineering", "Principles", };
+    Post post = new Post(12, "Engineering Principles",
+    "Engineering Principles are the principles of engineering and Engineering Data is the data used in the application of those principles.
+    Engineering is the science of design, construction, maintenance and operation of structures, machines, systems and processes according to 
+    scientific and mathematical principals.", tags, "Easy", "Immediately Needed");
+    assertFalse(post.addPost());
+}
 
 //addComment Function
 
