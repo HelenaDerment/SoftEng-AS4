@@ -34,6 +34,7 @@ public class Main {
 
         System.out.println("Enter a comment:");
         String comment = scanner.nextLine();
+        
         if (post.addComment(comment)) {
             System.out.println("Comment successfully added");
         } else {
