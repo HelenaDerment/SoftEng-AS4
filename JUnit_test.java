@@ -11,7 +11,7 @@ public void testAddPostValid() {
     Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
     "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
     I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
-    assertTrue(post.addPost());
+    assertTrue(validPost.addPost());
 }
 
 //Test Case #1 - Data 2
@@ -21,7 +21,7 @@ public void testAddPostValid() {
     "How do I create a user in Linux using Python? I mean, I know about the subprocess module and thought about calling 'adduser' and 
     passing all the parameters at once, but the 'adduser' command asks some questions like password, full name, phone and stuff. 
     How would I answer this questions using subprocess?.", tags, "Difficult", "Highly Needed");
-    assertTrue(post.addPost());
+    assertTrue(validPost.addPost());
 }
 
 //Test Case #2 - Data 1
@@ -130,28 +130,96 @@ public void testAddPostInvalidEmergency() {
 //addComment Function
 
 //Test Case #1 - Data 1
+public void testAddValidComment() {
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    assertTrue(post.addComment("Strings has to be empty"));
+}
 
 //Test Case #1 - Data 2
+public void testAddValidComment() {
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    assertTrue(post.addComment("Create a node that will store the first character"));
+}
 
 //Test Case #2 - Data 1
+public void testAddInvalidWords() {
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    assertFalse(post.addComment("The head node of the linked list should be the first character of the string, and so the head should be pointing to the first character of the string"));
+}
 
 //Test Case #2 - Data 2
+public void testAddInvalidWords() {
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    assertFalse(post.addComment("Create node"));
+}
 
 //Test Case #3 - Data 1
+public void testAddInvalidCharacter() {
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    assertFalse(post.addComment("each object carries some data"));
+}
 
 //Test Case #3 - Data 2
+public void testAddInvalidCharacter() {
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    assertFalse(post.addComment("start iterating the string from its second character"));
+}
 
 //Test Case #4 - Data 1
+public void testAddValidDifficult() {
+    assertTrue(validPost.addComment());
+}
 
 //Test Case #4 - Data 2
+public void testAddValidDifficult() {
+    assertTrue(validPost.addComment());
+}
 
 //Test Case #5 - Data 1
+public void testAddInvalidOrdinary() {
+    assertFalse(validPost.addComment());
+}
 
 //Test Case #5 - Data 2
+public void testAddInvalidOrdinary() {
+    assertFalse(validPost.addComment());
+}
+
 
 //Test Case #6 - Data 1
+public void testAddInvalidAmountComment() {
+    assertFalse(validPost.addComment());
+}
+
 
 //Test Case #6 - Data 2
+public void testAddInvalidAmountComment() {
+    assertFalse(validPost.addComment());
+}
 
-
+}
 }
