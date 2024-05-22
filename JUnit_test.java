@@ -96,6 +96,7 @@ public void testAddPostInvalidType() {
     man-made structures (such as piers, breakwaters and jetties), and thereby simplifying the installation process, as well as maintenance and accessibility.",
     tags, "Easy", "Ordinary");
     assertFalse(post.addPost());
+}
 
 //Test Case #5 - Data 2
 public void testAddPostInvalidType() {
@@ -190,36 +191,83 @@ public void testAddInvalidCharacter() {
 }
 
 //Test Case #4 - Data 1
-public void testAddValidDifficult() {
-    assertTrue(validPost.addComment());
+public void testAddValidEasy() {
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    post.addComment("No nodes can be added");
+    post.addComment("Iterating the sting from character");
+    assertTrue(post.addComment("Initialise with a curr pointer"));
 }
 
 //Test Case #4 - Data 2
-public void testAddValidDifficult() {
-    assertTrue(validPost.addComment());
+public void testAddValidEasy() {
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    assertTrue(post.addComment("No nodes can be added"));
 }
 
 //Test Case #5 - Data 1
 public void testAddInvalidOrdinary() {
-    assertFalse(validPost.addComment());
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    post.addComment("No nodes can be added");
+    post.addComment("Iterating the sting from character");
+    post.addComment("Initialise with a curr pointer");
+    post.addComment("Transverse the linked list");
+    assertFalse(post.addComment("Using a string conversion to build it"));
 }
 
 //Test Case #5 - Data 2
 public void testAddInvalidOrdinary() {
-    assertFalse(validPost.addComment());
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    post.addComment("No nodes can be added");
+    post.addComment("Iterating the sting from character");
+    post.addComment("Initialise with a curr pointer");
+    assertFalse(post.addComment("Transverse the linked list"));
 }
 
 
 //Test Case #6 - Data 1
 public void testAddInvalidAmountComment() {
-    assertFalse(validPost.addComment());
+    String[] tags = {"tag1", "tag2", "tag3"};
+    Post post = new Post(2, "How to create a user in linux using python", 
+    "How do I create a user in Linux using Python? I mean, I know about the subprocess module and thought about calling 'adduser' and 
+    passing all the parameters at once, but the 'adduser' command asks some questions like password, full name, phone and stuff. 
+    How would I answer this questions using subprocess?.", tags, "Difficult", "Highly Needed");
+    post.addPost();
+    post.addComment("No nodes can be added");
+    post.addComment("Iterating the sting from character");
+    post.addComment("Initialise with a curr pointer");
+    post.addComment("Transverse the linked list");
+    post.addComment("Using a string conversion to build it");
+    assertFalse(post.addComment("Use ArrayClass to create a string list"));
 }
 
 
 //Test Case #6 - Data 2
 public void testAddInvalidAmountComment() {
-    assertFalse(validPost.addComment());
+    String[] tags = {"tag1", "tag2"};
+    Post post = new Post(1, "What is the best way to code a string into a linked list in java", 
+    "I am writing a program to add String type data to a circular doubly linked list and to view them in java. 
+    I want to know that how to add Strings to the linked list and how to get the output.", tags, "Easy", "Ordinary");
+    post.addPost();
+    post.addComment("No nodes can be added");
+    post.addComment("Iterating the sting from character");
+    post.addComment("Initialise with a curr pointer");
+    assertFalse(post.addComment("Transverse the linked list"));
 }
 
-}
 }
