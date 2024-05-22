@@ -8,11 +8,11 @@ public class Post {
     private String postTitle;
     private String postBody;
     private String[] postTags;
-    private String[] postTypes = {"Very Difficult", "Difficult", "Easy"};
-    private String[] postEmergencies = {"Immediately Needed", "Highly Needed", "Ordinary"};
+    private String[] postType = {"Very Difficult", "Difficult", "Easy"};
+    private String[] postEmergency = {"Immediately Needed", "Highly Needed", "Ordinary"};
     private ArrayList<String> postComments = new ArrayList<>();
 
-    public Post(int postID, String postTitle, String postBody, String[] postTags, String postType, String postEmergency) {
+    public Post(int postID, String postTitle, String postBody, String[] postTags, String[] postType, String[] postEmergency) {
         this.postID = postID;
         this.postTitle = postTitle;
         this.postBody = postBody;
@@ -24,7 +24,7 @@ public class Post {
     public boolean addPost() {
         if (isValidPost()) {
             try (PostEditor edit = new PostEditor(new FileWriter("posts.txt", true))) {
-                edit.write(this.toString());
+                edit.write(this.postInfo());
                 edit.newLine();
                 return true;
             } 
@@ -75,11 +75,33 @@ public class Post {
         return true;
     }
 
+    public String postInfo() {
+        return postID + "|" + postTitle + "|" + postBody + "|" + String.join(",", postTags) + "|" + postType + "|" + postEmergency;
+    }
+
+
     public boolean addComment() {
+        if (isValidComment(comment)) {
+            try {
+                Path path = Paths.get("comment.txt");
+
+            }
+            edit.write();
+            edit.newLine();
+        }
 
     }
 
-    public boolean isValidComment() {
-
+    public boolean isValidComment(String comment) {
+        if (postComments.size() >= 5 || (postType.equals("Easy") && postComments.size() >= 3) || (postEmergency.equals("Ordinary") && postComments.size() >= 3)) {
+            return false;
+        }
+        String[] words = comment.split(" ");
+        if (words.length < 4 || words.length > 10 || !Character.isUpperCase(words[0].charAt(0))) {
+            return false;
+        }
+        return true;
     }
+
+    
 }
