@@ -8,11 +8,14 @@ public class Post {
     private String postTitle;
     private String postBody;
     private String[] postTags;
-    private String[] postType = {"Very Difficult", "Difficult", "Easy"};
-    private String[] postEmergency = {"Immediately Needed", "Highly Needed", "Ordinary"};
+    private String postType;
+    private String postEmergency;
     private ArrayList<String> postComments = new ArrayList<>();
 
-    public Post(int postID, String postTitle, String postBody, String[] postTags, String[] postType, String[] postEmergency) {
+    private String[] postTypes = {"Very Difficult", "Difficult", "Easy"};
+    private String[] postEmergencies = {"Immediately Needed", "Highly Needed", "Ordinary"};
+
+    public Post(int postID, String postTitle, String postBody, String[] postTags, String postType, String postEmergency) {
         this.postID = postID;
         this.postTitle = postTitle;
         this.postBody = postBody;
@@ -23,7 +26,7 @@ public class Post {
 
     public boolean addPost() {
         if (isValidPost()) {
-            try (PostEditor edit = new PostEditor(new FileWriter("posts.txt", true))) {
+            try (BufferedWriter edit = new BufferedWriter(new FileWriter("posts.txt", true))) {
                 edit.write(this.postInfo());
                 edit.newLine();
                 return true;
@@ -79,17 +82,19 @@ public class Post {
         return postID + "|" + postTitle + "|" + postBody + "|" + String.join(",", postTags) + "|" + postType + "|" + postEmergency;
     }
 
-
-    public boolean addComment() {
+    public boolean addComment(String comment) {
         if (isValidComment(comment)) {
-            try {
-                Path path = Paths.get("comment.txt");
-
+            try (BufferedWriter edit = new BufferedWriter(new FileWriter("comments.txt", true))) {
+                edit.write("PostID: " + postID + " Comment: " + comment);
+                edit.newLine();
+                postComments.add(comment);
+                return true;
+            } 
+            catch (IOException e) {
+                e.printStackTrace();
             }
-            edit.write();
-            edit.newLine();
         }
-
+        return false;
     }
 
     public boolean isValidComment(String comment) {
