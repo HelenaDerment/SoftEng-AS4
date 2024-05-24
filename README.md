@@ -1,15 +1,16 @@
 # SoftEng-AS4
 
 //File Information//
-- main_post.java is the console base application
+- Main.java is the console base application
 
-- JUnit_test.java is the test data for both addPost() and addComment() fucntions
+- PostTestCases.java is the test data for both addPost() and addComment() fucntions
 
-- post.java is the Java implementation of the addPost() and addComment() functions
+- Post.java is the Java implementation of the addPost() and addComment() functions
 
 //Running the test data 
 
-To run the test data from JUnit_test.java to be implemented into the main_post.java (console base application):
+First complie the Main and Post code, Copy the following command into the termainal:
+javac Post.java Main.java
 
-Copy the following command into the termainal
-javac post.java main_post.java
+To run the test code, Copy the following command into the terminal:
+javac -cp .:junit-platform-console-standalone-1.7.0.jar Post.java PostTestCases.java
