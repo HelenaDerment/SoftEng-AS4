@@ -10,7 +10,7 @@
 //Running the test data 
 
 First complie the Main and Post code, Copy the following command into the termainal:
-javac Post.java Main.java
+mvn clean
 
 To run the test code, Copy the following command into the terminal:
-javac -cp .:junit-platform-console-standalone-1.7.0.jar Post.java PostTestCases.java
+mvn test

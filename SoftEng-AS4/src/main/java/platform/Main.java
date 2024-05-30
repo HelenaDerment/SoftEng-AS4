@@ -1,4 +1,6 @@
 package platform;
+
+import java.util.List;
 import java.util.Scanner;
 
 //Function of the console based program
